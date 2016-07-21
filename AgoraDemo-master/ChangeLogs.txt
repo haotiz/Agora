@@ -1,0 +1,94 @@
+Release 1.1.5
+API:
+[1] API: add comments for iOS API
+[2] API: deprecate API setSpeakerphoneVolume on iOS
+[3] API: add more error code definition
+
+Bug fix:
+[1] callback userJoined, userOffline doesn't work when rejoin on iOS
+
+Feature:
+[1] feature changed: chat engine start local video capture even if local canvas is not specified
+
+Release 1.1.4
+
+API:
+[1] API changed: add offline reason to onUserOffline callback
+[2] API changed: move Constants from interface IRtcEngineHandler to class Constants
+[3] API changed: add new channel profile: WEBSDK_COMPATIBLE
+[4] API changed for iOS: change - (id)initWithVendorKey:(NSString*)key delegate:(id<AgoraRtcEngineDelegate>)delegate; to + (id)sharedEngineWithVendorKey:(NSString*)key delegate:(id<AgoraRtcEngineDelegate>)delegate; 
+
+Bug fix:
+[1] Fix BT headset issue
+[2] fix a bug that enable/disable video very quickly may cause video function cannto work (mismatch of stream subscription between SDK and VOS)
+[3] user leave and then join, see a lot of decode error
+[4] delegate could be updated
+
+Release 1.1.3
+
+API:
+[1] onConnectionLost  ==> onConnectionInterrupted to indicate once connection is lost with vos
+[2] add getErrorDescription for android
+
+Feature:
+[1] Add android x86 support
+
+Bug fix:
+[1] initPlayAndRecord crash
+[2] Failed to leave channel
+[3] green area in video view
+[4] audio cannot communicate with web sdk
+[5] switchCamera: switch to back camera in the first time
+
+Release 1.1.2
+[1] add data statistics, and report to server
+
+Bug fix: 
+[1] could not switch to headphone when interrupted by a real call on iOS.
+[2] failed to switch camera by API "switchCamera" in the first time.
+
+Release 1.1.1
+Built on 2015-12-8
+
+API:
+[1] add API: getNativeHandle;
+[2] add API: setChannelProfile(CHANNEL_PROFILE_TYPE profile), callbacks onUerJoined/onUserDropped/onUserMutedAudio/onUserMutedVideo only work under FREE channel profile
+[3] add API: onApiCallExecuted. Every API call will have notification sent to APP when it's done
+[4] API change: renewDynamicKey ==> renewChannelDynamicKey
+
+Bug fix:
+[1] fix the issue of large comfort noise after mute/unmute op
+[2] increase the mic volume
+[3] improve the echo problem in general
+[4] sometimes video stuck after network bandwidth has a big drop
+[5] the remote view ratates degree 90 when enableVideo after joinChannel
+
+
+
+Release 1.1.0
+Built on 2015-11-30
+
+API Changes:
+[1] add setVideoProfile API and video profile definition
+[2] remove setVideoMaxBitrate/setVideoMaxFrameRate/setVideoResolution APIs
+[3] onLocalVideoStat: sentBytes/sentFrames ==> sentBitrate/sentFrameRate
+[4] onRemoteVideoStat: receivedFrameCount/receivedBytes ==> receivedBitrate/receivedFrameRate
+[5] add renewDynamicKey to renew dynamic key
+[6] add muteRemoteAudioStream and muteRemoteVideoStream
+[7] add startPreview/stopPreview API, which should be used w/ or w/o joining a channel.
+
+Bug fix:
+[1] video memory leak
+[2] Video drops when a video call lasts tens of minutes.
+[3] bug fix: green view
+
+Improvement
+[1] increase the mic volume for Android
+
+Release 1.0.0
+Built on 2015-10-30
+
+Feature:
+[1] Support video chat: 1v1 and group call
+[2] API changes
+
